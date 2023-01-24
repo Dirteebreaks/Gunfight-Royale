@@ -23239,6 +23239,9 @@
       </block>
     </statement>
   </block>
+  <block type="Text" x="2146" y="6793">
+    <field name="TEXT">ove all rule 4 stuff into the rule 3 block</field>
+  </block>
   <block type="subroutineBlock" deletable="false" x="-4081" y="7122">
     <field name="SUBROUTINE_NAME">EndOfRound</field>
     <statement name="ACTIONS">
