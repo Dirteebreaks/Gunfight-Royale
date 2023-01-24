@@ -13548,7 +13548,8 @@
     </statement>
   </block>
   <block type="EventPlayer" x="351" y="3267"></block>
-  <block type="modBlock" deletable="false" x="1390" y="4348">
+  <block type="EventPlayer" x="348" y="4422"></block>
+  <block type="modBlock" deletable="false" x="1126" y="4493">
     <statement name="RULES">
       <block type="ruleBlock">
         <mutation isOnGoingEvent="false"></mutation>
@@ -13796,24 +13797,6 @@
             <mutation isOnGoingEvent="false"></mutation>
             <field name="NAME">2</field>
             <field name="EVENTTYPE">OnPlayerJoinGame</field>
-            <statement name="ACTIONS">
-              <block type="SetVariable">
-                <value name="VALUE-1">
-                  <block type="Boolean">
-                    <field name="BOOL">FALSE</field>
-                  </block>
-                </value>
-                <next>
-                  <block type="SetVariable">
-                    <value name="VALUE-1">
-                      <block type="Number">
-                        <field name="NUM">0</field>
-                      </block>
-                    </value>
-                  </block>
-                </next>
-              </block>
-            </statement>
             <next>
               <block type="ruleBlock">
                 <mutation isOnGoingEvent="true"></mutation>
@@ -14973,8 +14956,6 @@
       </block>
     </statement>
   </block>
-  <block type="EventPlayer" x="348" y="4422"></block>
-  <block type="EventPlayer" x="1709" y="5893"></block>
   <block type="subroutineBlock" deletable="false" x="-6456" y="6377">
     <field name="SUBROUTINE_NAME">Random_control_point</field>
     <statement name="ACTIONS">
@@ -23239,9 +23220,6 @@
       </block>
     </statement>
   </block>
-  <block type="Text" x="2146" y="6793">
-    <field name="TEXT">ove all rule 4 stuff into the rule 3 block</field>
-  </block>
   <block type="subroutineBlock" deletable="false" x="-4081" y="7122">
     <field name="SUBROUTINE_NAME">EndOfRound</field>
     <statement name="ACTIONS">
@@ -23610,6 +23588,9 @@
         </next>
       </block>
     </statement>
+  </block>
+  <block type="Text" x="2029" y="6873">
+    <field name="TEXT">ove all rule 4 stuff into the rule 3 block</field>
   </block>
   <block type="subroutineBlock" deletable="false" x="-3886" y="8847">
     <field name="SUBROUTINE_NAME">SetRandomLoadout</field>
