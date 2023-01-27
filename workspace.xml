@@ -14362,15 +14362,11 @@
                                                               </block>
                                                             </value>
                                                             <statement name="DO">
-                                                              <block type="DisplayCustomNotificationMessage">
+                                                              <block type="If">
+                                                                <mutation else="1"></mutation>
                                                                 <value name="VALUE-0">
-                                                                  <block type="Message">
+                                                                  <block type="GreaterThan">
                                                                     <value name="VALUE-0">
-                                                                      <block type="Text">
-                                                                        <field name="TEXT">Waiting for {} players to deploy..</field>
-                                                                      </block>
-                                                                    </value>
-                                                                    <value name="VALUE-1">
                                                                       <block type="CountOf">
                                                                         <value name="VALUE-0">
                                                                           <block type="FilteredArray">
@@ -14398,19 +14394,89 @@
                                                                         </value>
                                                                       </block>
                                                                     </value>
+                                                                    <value name="VALUE-1">
+                                                                      <block type="Number">
+                                                                        <field name="NUM">0</field>
+                                                                      </block>
+                                                                    </value>
                                                                   </block>
                                                                 </value>
-                                                                <value name="VALUE-1">
-                                                                  <block type="CustomMessagesItem">
-                                                                    <field name="VALUE-0">CustomMessages</field>
-                                                                    <field name="VALUE-1">HeaderText</field>
+                                                                <statement name="DO">
+                                                                  <block type="DisplayCustomNotificationMessage">
+                                                                    <value name="VALUE-0">
+                                                                      <block type="Message">
+                                                                        <value name="VALUE-0">
+                                                                          <block type="Text">
+                                                                            <field name="TEXT">Waiting for {} players to deploy..</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="VALUE-1">
+                                                                          <block type="CountOf">
+                                                                            <value name="VALUE-0">
+                                                                              <block type="FilteredArray">
+                                                                                <value name="VALUE-0">
+                                                                                  <block type="AllPlayers"></block>
+                                                                                </value>
+                                                                                <value name="VALUE-1">
+                                                                                  <block type="Not">
+                                                                                    <value name="VALUE-0">
+                                                                                      <block type="GetSoldierState">
+                                                                                        <value name="VALUE-0">
+                                                                                          <block type="CurrentArrayElement"></block>
+                                                                                        </value>
+                                                                                        <value name="VALUE-1">
+                                                                                          <block type="SoldierStateBoolItem">
+                                                                                            <field name="VALUE-0">SoldierStateBool</field>
+                                                                                            <field name="VALUE-1">IsAlive</field>
+                                                                                          </block>
+                                                                                        </value>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                  </block>
+                                                                                </value>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="VALUE-1">
+                                                                      <block type="CustomMessagesItem">
+                                                                        <field name="VALUE-0">CustomMessages</field>
+                                                                        <field name="VALUE-1">HeaderText</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="VALUE-2">
+                                                                      <block type="Number">
+                                                                        <field name="NUM">1</field>
+                                                                      </block>
+                                                                    </value>
                                                                   </block>
-                                                                </value>
-                                                                <value name="VALUE-2">
-                                                                  <block type="Number">
-                                                                    <field name="NUM">1</field>
+                                                                </statement>
+                                                                <statement name="ELSE">
+                                                                  <block type="DisplayCustomNotificationMessage">
+                                                                    <value name="VALUE-0">
+                                                                      <block type="Message">
+                                                                        <value name="VALUE-0">
+                                                                          <block type="Text">
+                                                                            <field name="TEXT">Starting now...</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="VALUE-1">
+                                                                      <block type="CustomMessagesItem">
+                                                                        <field name="VALUE-0">CustomMessages</field>
+                                                                        <field name="VALUE-1">HeaderText</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="VALUE-2">
+                                                                      <block type="Number">
+                                                                        <field name="NUM">-1</field>
+                                                                      </block>
+                                                                    </value>
                                                                   </block>
-                                                                </value>
+                                                                </statement>
                                                                 <next>
                                                                   <block type="EnableAllInputRestrictions">
                                                                     <value name="VALUE-0">
@@ -23352,7 +23418,7 @@
       </block>
     </statement>
   </block>
-  <block type="subroutineBlock" deletable="false" x="-4109" y="6928">
+  <block type="subroutineBlock" deletable="false" x="-4078" y="6926">
     <field name="SUBROUTINE_NAME">EndOfRound</field>
     <statement name="ACTIONS">
       <block type="subroutineInstanceBlock">
@@ -23507,29 +23573,61 @@
                         <statement name="DO">
                           <block type="If">
                             <value name="VALUE-0">
-                              <block type="GetSoldierState">
+                              <block type="Or">
                                 <value name="VALUE-0">
-                                  <block type="ValueInArray">
+                                  <block type="GetSoldierState">
                                     <value name="VALUE-0">
-                                      <block type="AllPlayers"></block>
-                                    </value>
-                                    <value name="VALUE-1">
-                                      <block type="GetVariable">
+                                      <block type="ValueInArray">
                                         <value name="VALUE-0">
-                                          <block type="variableReferenceBlock">
-                                            <mutation isObjectVar="false"></mutation>
-                                            <field name="OBJECTTYPE">Global</field>
-                                            <field name="VAR" id="g*jVY#)ezeZ6u)OrNxI_" variabletype="Global">i</field>
+                                          <block type="AllPlayers"></block>
+                                        </value>
+                                        <value name="VALUE-1">
+                                          <block type="GetVariable">
+                                            <value name="VALUE-0">
+                                              <block type="variableReferenceBlock">
+                                                <mutation isObjectVar="false"></mutation>
+                                                <field name="OBJECTTYPE">Global</field>
+                                                <field name="VAR" id="g*jVY#)ezeZ6u)OrNxI_" variabletype="Global">i</field>
+                                              </block>
+                                            </value>
                                           </block>
                                         </value>
+                                      </block>
+                                    </value>
+                                    <value name="VALUE-1">
+                                      <block type="SoldierStateBoolItem">
+                                        <field name="VALUE-0">SoldierStateBool</field>
+                                        <field name="VALUE-1">IsManDown</field>
                                       </block>
                                     </value>
                                   </block>
                                 </value>
                                 <value name="VALUE-1">
-                                  <block type="SoldierStateBoolItem">
-                                    <field name="VALUE-0">SoldierStateBool</field>
-                                    <field name="VALUE-1">IsAlive</field>
+                                  <block type="GetSoldierState">
+                                    <value name="VALUE-0">
+                                      <block type="ValueInArray">
+                                        <value name="VALUE-0">
+                                          <block type="AllPlayers"></block>
+                                        </value>
+                                        <value name="VALUE-1">
+                                          <block type="GetVariable">
+                                            <value name="VALUE-0">
+                                              <block type="variableReferenceBlock">
+                                                <mutation isObjectVar="false"></mutation>
+                                                <field name="OBJECTTYPE">Global</field>
+                                                <field name="VAR" id="g*jVY#)ezeZ6u)OrNxI_" variabletype="Global">i</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <value name="VALUE-1">
+                                      <block type="SoldierStateBoolItem">
+                                        <field name="VALUE-0">SoldierStateBool</field>
+                                        <field name="VALUE-1">IsAlive</field>
+                                      </block>
+                                    </value>
                                   </block>
                                 </value>
                               </block>
