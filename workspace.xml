@@ -5154,58 +5154,6 @@
       </block>
     </statement>
   </block>
-  <block type="DisplayCustomNotificationMessage" x="-7111" y="2650">
-    <value name="VALUE-0">
-      <block type="Message">
-        <value name="VALUE-0">
-          <block type="Text">
-            <field name="TEXT">countof primaries {} - countof flags {}</field>
-          </block>
-        </value>
-        <value name="VALUE-1">
-          <block type="CountOf" inline="false">
-            <value name="VALUE-0">
-              <block type="GetVariable">
-                <value name="VALUE-0">
-                  <block type="variableReferenceBlock">
-                    <mutation isObjectVar="false"></mutation>
-                    <field name="OBJECTTYPE">Global</field>
-                    <field name="VAR" id="8]i5$OQDI*mFkXz3#8^i" variabletype="Global">Primary_List</field>
-                  </block>
-                </value>
-              </block>
-            </value>
-          </block>
-        </value>
-        <value name="VALUE-2">
-          <block type="CountOf" inline="false">
-            <value name="VALUE-0">
-              <block type="GetVariable">
-                <value name="VALUE-0">
-                  <block type="variableReferenceBlock">
-                    <mutation isObjectVar="false"></mutation>
-                    <field name="OBJECTTYPE">Global</field>
-                    <field name="VAR" id="cGrP#]S~RIoF!^C%Kx/)" variabletype="Global">Control_point_list</field>
-                  </block>
-                </value>
-              </block>
-            </value>
-          </block>
-        </value>
-      </block>
-    </value>
-    <value name="VALUE-1">
-      <block type="CustomMessagesItem">
-        <field name="VALUE-0">CustomMessages</field>
-        <field name="VALUE-1">MessageText1</field>
-      </block>
-    </value>
-    <value name="VALUE-2">
-      <block type="Number">
-        <field name="NUM">2</field>
-      </block>
-    </value>
-  </block>
   <block type="subroutineBlock" deletable="false" x="5130" y="2183">
     <field name="SUBROUTINE_NAME">Player_Spawn_Array</field>
     <statement name="ACTIONS">
@@ -13549,7 +13497,7 @@
   </block>
   <block type="EventPlayer" x="351" y="3267"></block>
   <block type="EventPlayer" x="348" y="4422"></block>
-  <block type="modBlock" deletable="false" x="1206" y="4545">
+  <block type="modBlock" deletable="false" x="1125" y="4564">
     <statement name="RULES">
       <block type="ruleBlock">
         <mutation isOnGoingEvent="false"></mutation>
@@ -13863,6 +13811,22 @@
                             </value>
                           </block>
                         </statement>
+                        <next>
+                          <block type="Wait">
+                            <value name="VALUE-0">
+                              <block type="Number">
+                                <field name="NUM">5</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="SpawnPlayer">
+                                <value name="VALUE-0">
+                                  <block type="EventPlayer"></block>
+                                </value>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
                       </block>
                     </next>
                   </block>
@@ -23994,7 +23958,20 @@
                                                                       </block>
                                                                     </value>
                                                                     <next>
-                                                                      <block type="ForceSpawnAllPlayers"></block>
+                                                                      <block type="ForceSpawnAllPlayers">
+                                                                        <next>
+                                                                          <block type="Wait">
+                                                                            <value name="VALUE-0">
+                                                                              <block type="Number">
+                                                                                <field name="NUM">5</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <next>
+                                                                              <block type="ForceSpawnAllPlayers"></block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
                                                                     </next>
                                                                   </block>
                                                                 </next>
